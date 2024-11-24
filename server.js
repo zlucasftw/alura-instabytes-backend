@@ -4,6 +4,9 @@ import routes from "./src/routes/postsRoutes.js";
 
 // Cria uma instância do aplicativo Express
 const app = express();
+
+app.use(express.static("uploads"));
+
 routes(app);
 
 // Define a rota GET /posts/:id para retornar um post específico pelo ID
@@ -26,6 +29,8 @@ app.get("/posts/:id", (req, res) => {
 
 // Inicia o servidor na porta 3000
 app.listen(3000, () => {
+    
     // Exibe uma mensagem no console indicando que o servidor está escutando
     console.log("Servidor escutando...");
+
 });
